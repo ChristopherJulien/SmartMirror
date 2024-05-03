@@ -1,0 +1,43 @@
+.MMM-LifeCalendar .grid {
+  display: grid;
+  grid-template-columns: repeat(52, 1px); /* Adjust cell width as needed */
+  grid-gap: 1px;
+  max-width: 520px; /* Adjust based on total width of 52 cells */
+  margin: auto;
+}
+
+.MMM-LifeCalendar .grid div {
+  width: 10px;
+  height: 10px;
+  background-color: grey;
+}
+
+.MMM-LifeCalendar .grid div.lived {
+  background-color: green;
+}
+/* Container for the weeks grid */
+.weeks-grid {
+  display: grid;
+  grid-template-columns: repeat(52, 20px); /* Ensure this matches the JavaScript settings */
+  grid-gap: 3px; /* Gap between cells */
+  justify-content: center; /* Center the grid within its container */
+  max-width: 1044px; /* Adjust width based on total width of columns plus gaps */
+  margin: 20px auto; /* Center grid horizontally */
+}
+
+.week-cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc; /* Optional: border to visually separate cells */
+}
+
+@media (max-width: 768px) {
+  .weeks-grid {
+    grid-template-columns: repeat(26, 10px); /* Half the number of columns on smaller screens */
+    grid-gap: 1px;
+  }
+  .week-cell {
+    width: 10px;
+    height: 10px; /* Smaller cells on narrower screens */
+  }
+}
