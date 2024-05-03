@@ -6,6 +6,12 @@ Module.register("MMM-LifeCalendar", {
     weeksPerYear: 52,
     totalYears: 90,
     birthdate: "1990-01-01",
+    earlyYears: 6,
+    schooling: 12,
+    university: 6,
+    
+
+
   },
   getHeader: function () {
     return 'Life Calendar';
@@ -69,9 +75,8 @@ getDom: function () {
   // Generate cells for each week
   for (var i = 0; i < this.config.totalYears * this.config.weeksPerYear; i++) {
     var cell = document.createElement("div");
-    cell.style.width = "5px";  // Set the width of each cell
-    cell.style.height = "5px"; // Set the height of each cell
-    cell.style.backgroundColor = i < weeksLived ? "green" : "grey"; // Color cells based on weeks lived
+    cell.className = "week-cell"; // Assign class for styling
+    cell.style.backgroundColor = i < weeksLived ? "#00D0FF" : "grey"; // Color cells based on weeks lived
     grid.appendChild(cell);
   }
 

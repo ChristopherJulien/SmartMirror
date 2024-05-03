@@ -26,10 +26,15 @@
 }
 
 .week-cell {
-  width: 20px;
-  height: 20px;
-  border: 1px solid #ccc; /* Optional: border to visually separate cells */
+  position: relative;
+  display: flex;
+  width: 5px;
+  height: 5px;
+  border-radius: 3px;
+  border: 1px solid #00D0FF; /* Bright blue border */
+  background-color: #00D0FF; /* Bright blue background */
 }
+
 
 @media (max-width: 768px) {
   .weeks-grid {
