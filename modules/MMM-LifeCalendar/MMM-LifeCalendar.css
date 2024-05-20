@@ -1,21 +1,39 @@
-/* Define the overall container for the grid */
+/* General styles */
+body {
+  margin: 0;
+  padding-bottom: 150px;
+  background-color: #031417;
+  color: #fff;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  
+}
+
+#app {
+  text-align: center;
+  padding: 0;
+}
+
+/* Grid container wrapper */
 .grid-container-wrapper {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
-  font-size: 10px;
+  /* font-size: 12px; */
+  font-size: 6px;
+  margin: 20px;
 }
 
-/* Style for the top row that contains the week headers */
+/* Top row for week headers */
 .top-row {
   display: flex;
   justify-content: center;
   align-items: center;
   grid-column: 2 / 3;
   grid-row: 1 / 2;
+  padding: 5px 0;
 }
 
-/* Style for the left column that contains the year headers */
+/* Left column for year headers */
 .left-column {
   display: flex;
   flex-direction: column;
@@ -23,75 +41,77 @@
   align-items: center;
   grid-column: 1 / 2;
   grid-row: 2 / 3;
+  padding: 5px 0;
 }
 
-/* Style for the week header text */
+/* Style for week and year headers */
 .week-header, .year-header {
   text-align: center;
   font-weight: bold;
+  padding: 5px;
 }
 
-/* Style for the week and year numbers */
+/* Week and year numbers */
 .week-number, .year-number {
   text-align: center;
-  /* padding: 5px; */
   padding: 2px;
+  margin: 2px;
 }
 
 /* Style for the grid container that holds the week cells */
 .grid-container {
   display: grid;
-  /* gap: 7px; */
   gap: 3px;
   grid-column: 2 / 3;
   grid-row: 2 / 3;
-  grid-template-columns: repeat(52, auto); /* Adjust as needed */
+  grid-template-columns: repeat(52, auto);
+  justify-content: center;
 }
 
 /* Base style for each week cell */
 .week-cell {
   position: relative;
   display: flex;
-  width: 6px; /* Reduce size to make the grid smaller */
-  height: 6px; /* Reduce size to make the grid smaller */
-  border-radius: 3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
   background-color: black;
 }
 
 /* Styles for different stages of life */
 .week-cell.early_years {
   background-color: #00D0FF;
-  border: 2px solid #00D0FF;
+  border: 1px solid #00D0FF;
 }
 
 .week-cell.elementary_years {
   background-color: rgb(73, 233, 166);
-  border: 2px solid rgb(73, 233, 166);
+  border: 1px solid rgb(73, 233, 166);
 }
 
 .week-cell.middle_school_years {
   background-color: rgb(232, 255, 0);
-  border: 2px solid rgb(232, 255, 0);
+  border: 1px solid rgb(232, 255, 0);
 }
 
 .week-cell.high_school_years {
   background-color: rgb(255, 152, 0);
-  border: 2px solid rgb(255, 152, 0);
+  border: 1px solid rgb(255, 152, 0);
 }
 
 .week-cell.college_years {
   background-color: rgb(255, 0, 0);
-  border: 2px solid rgb(255, 0, 0);
+  border: 1px solid rgb(255, 0, 0);
 }
 
 .week-cell.career_years {
   background-color: rgb(103, 58, 183);
-  border: 2px solid rgb(103, 58, 183);
+  border: 1px solid rgb(103, 58, 183);
 }
 
 .week-cell.retirement_years {
   background-color: rgb(255, 0, 255);
-  border: 2px solid rgb(255, 0, 255);
+  border: 1px solid rgb(255, 0, 255);
 }
 
 /* Style for the current week cell */
@@ -100,4 +120,44 @@
   border-color: #fff !important;
   box-shadow: 0 0 5px #fe2cd4, 0 0 10px #fe2cd4, 0 0 20px #fe2cd4, 0 0 30px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4;
   z-index: 10;
+}
+
+/* Tooltip styles */
+.tooltip-container {
+  position: relative;
+}
+
+.tooltip {
+  background-color: #940c3a;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: 700;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 2px #000;
+  text-shadow: #000 0 2px;
+  min-width: max-content;
+  opacity: 0.8;
+}
+
+.tooltip:before {
+  border: solid;
+  border-color: #940c3a transparent;
+  border-width: 0 6px 10px 6px;
+  content: "";
+  left: calc(50% - 6px);
+  bottom: 30px;
+  position: absolute;
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  .week-number-container {
+    display: none;
+  }
+
+  .week-cell {
+    width: 5px;
+    height: 5px;
+  }
 }
