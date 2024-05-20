@@ -39,3 +39,10 @@
   background-color: rgb(255, 0, 255);
   border: 2px solid rgb(255, 0, 255);
 }
+
+.week-cell.current_week {
+  background-color: #fff !important;
+  border-color: #fff !important;
+  box-shadow: 0 0 5px #fe2cd4, 0 0 10px #fe2cd4, 0 0 20px #fe2cd4, 0 0 30px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4;
+  z-index: 10
+}

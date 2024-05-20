@@ -94,8 +94,12 @@ Module.register("MMM-LifeCalendar", {
         cell.classList.add("career_years");
       }
 
+      if(i == weeksLived) {
+        cell.classList.add("current_week"); 
+      }
+
       // Set the background color to black if the week number is larger than the current weeks lived
-      if (i >= weeksLived) {
+      if (i > weeksLived) {
         cell.style.backgroundColor = "black";
       }
 
