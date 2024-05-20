@@ -5,7 +5,6 @@ body {
   background-color: #031417;
   color: #fff;
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  
 }
 
 #app {
@@ -16,54 +15,64 @@ body {
 /* Grid container wrapper */
 .grid-container-wrapper {
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto 1fr;
-  /* font-size: 12px; */
+  grid-template-columns: repeat(53, auto); /* Include extra column for year numbers */
+  grid-template-rows: auto repeat(121, auto); /* Include extra row for week header */
   font-size: 6px;
   margin: 20px;
 }
 
 /* Top row for week headers */
 .top-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
+  display: grid;
+  grid-column: 2 / -1; /* Span from second column to the last column */
+  grid-row: 1;
   padding: 5px 0;
+  align-items: center;
+}
+
+/* Container for week numbers */
+.week-numbers-container {
+  display: grid;
+  grid-template-columns: repeat(52, auto);
+  grid-column: 1 / -1; /* Span all columns */
 }
 
 /* Left column for year headers */
 .left-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
-  padding: 5px 0;
+  display: grid;
+  grid-row: 2 / -1;
+  align-items: start;
 }
 
 /* Style for week and year headers */
-.week-header, .year-header {
+.week-header {
   text-align: center;
   font-weight: bold;
   padding: 5px;
+  grid-column: 1 / -1; /* Span all columns */
 }
 
 /* Week and year numbers */
-.week-number, .year-number {
+.week-number {
   text-align: center;
   padding: 2px;
-  margin: 2px;
+  margin: 1px;
+  grid-row: 1; /* Ensures week numbers are in the first row */
+}
+
+.year-number {
+  text-align: center;
+  padding: 2px;
+  margin: 1px;
+  grid-column: 1;
 }
 
 /* Style for the grid container that holds the week cells */
 .grid-container {
   display: grid;
   gap: 3px;
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
+  grid-column: 2 / -1;
+  grid-row: 2 / -1;
   grid-template-columns: repeat(52, auto);
   justify-content: center;
 }
