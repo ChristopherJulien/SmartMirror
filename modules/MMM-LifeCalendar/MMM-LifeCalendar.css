@@ -1,48 +1,41 @@
-.MMM-LifeCalendar .grid {
-  display: grid;
-  grid-template-columns: repeat(52, 1px); /* Adjust cell width as needed */
-  grid-gap: 1px;
-  max-width: 520px; /* Adjust based on total width of 52 cells */
-  margin: auto;
-}
-
-.MMM-LifeCalendar .grid div {
-  width: 10px;
-  height: 10px;
-  background-color: grey;
-}
-
-.MMM-LifeCalendar .grid div.lived {
-  background-color: green;
-}
-/* Container for the weeks grid */
-.weeks-grid {
-  display: grid;
-  grid-template-columns: repeat(52, 20px); /* Ensure this matches the JavaScript settings */
-  grid-gap: 3px; /* Gap between cells */
-  justify-content: center; /* Center the grid within its container */
-  max-width: 1044px; /* Adjust width based on total width of columns plus gaps */
-  margin: 20px auto; /* Center grid horizontally */
-}
-
 .week-cell {
   position: relative;
   display: flex;
-  width: 5px;
-  height: 5px;
+  width: 10px;  /* Corrected to match the last declaration */
+  height: 10px;
   border-radius: 3px;
-  border: 1px solid #00D0FF; /* Bright blue border */
-  background-color: #00D0FF; /* Bright blue background */
+  background-color: black;
 }
 
-
-@media (max-width: 768px) {
-  .weeks-grid {
-    grid-template-columns: repeat(26, 10px); /* Half the number of columns on smaller screens */
-    grid-gap: 1px;
-  }
-  .week-cell {
-    width: 10px;
-    height: 10px; /* Smaller cells on narrower screens */
-  }
+.grid-container {
+  display: grid;
+  gap: 7px;
+}
+.week-cell.early_years {
+  background-color: #00D0FF;
+  border: 2px solid #00D0FF;
+}
+.week-cell.elementary_years {
+  background-color: rgb(73, 233, 166);
+  border: 2px solid rgb(73, 233, 166);
+}
+.week-cell.middle_school_years {
+  background-color: rgb(232, 255, 0);
+  border: 2px solid rgb(232, 255, 0);
+}
+.week-cell.high_school_years {
+  background-color: rgb(255, 152, 0);
+  border: 2px solid rgb(255, 152, 0);
+}
+.week-cell.college_years {
+  background-color: rgb(255, 0, 0);
+  border: 2px solid rgb(255, 0, 0);
+}
+.week-cell.career_years {
+  background-color: rgb(103, 58, 183);
+  border: 2px solid rgb(103, 58, 183);
+}
+.week-cell.retirement_years {
+  background-color: rgb(255, 0, 255);
+  border: 2px solid rgb(255, 0, 255);
 }

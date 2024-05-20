@@ -1,0 +1,10 @@
+--------------------------------------------------------
+                Color Code
+--------------------------------------------------------
+Early Years        BLUE      :       rgb(0, 208, 255)
+Elemntary          GREEN     :       rgb(73, 233, 166)
+Middle School      YELLOW    :       rgb(232, 255, 0)
+High School        ORANGE    :       rgb(255, 152, 0)
+College            RED       :       rgb(255, 0, 0)
+Career             PURPLE    :       rgb(103, 58, 183)
+Retirement         DBLUE     :       rgb(0, 255, 0)

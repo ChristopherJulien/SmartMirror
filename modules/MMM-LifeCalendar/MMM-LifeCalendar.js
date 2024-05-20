@@ -1,36 +1,37 @@
 Module.register("MMM-LifeCalendar", {
-  // Default module config.
   
   defaults: {
-    text: "Hello World!",
     weeksPerYear: 52,
-    totalYears: 90,
-    birthdate: "1990-01-01",
+    totalYears: 120,
+    birthdate: "2000-01-01",
     earlyYears: 6,
-    schooling: 12,
-    university: 6,
-    
-
-
+    elementaryYears: 6,
+    middleSchoolYears: 2,
+    highSchoolYears: 4,
+    collegeYears: 7,
+    careerYears: 40,
   },
+
   getHeader: function () {
     return 'Life Calendar';
   },
+  
   // Define required scripts.
   getScripts: function () {
     return ["moment.js"];
   },
+  
   // Define styles.
   getStyles(){
     return ["MMM-LifeCalendar.css"];
   },
-
 
   // Retrieve current date
   getDate: function () {
     var date = moment();
     return date;
   },
+  
   // Retrieve age in weeks
   getAge: function () {
     var date = this.getDate();
@@ -38,49 +39,70 @@ Module.register("MMM-LifeCalendar", {
     var age = date.diff(birthdate, 'weeks');
     return age;
   },
-  // Calculate life progress
-  calculateLifeProgress: function() {
-    var weeksLived = this.getAge();
-    var totalWeeks = this.config.weeksPerYear * this.config.totalYears;
-    return (weeksLived / totalWeeks) * 100;  // Returns percentage of life lived
-  },
-
-
+  
   // Define start sequence
   start: function () {
     Log.info("Starting module: " + this.name);
     Log.info("Current date: " + this.getDate());
-    Log.info("Age: " + this.getAge());  
-    
+    Log.info("Age: " + this.getAge());      
   },
-  // Override dom generator.
-getDom: function () {
-  var wrapper = document.createElement("div");
-  wrapper.className = "bright medium";
-
-  // Displaying age in weeks
-  // var ageText = document.createElement("div");
-  // ageText.innerHTML = "You are " + this.getAge() + " weeks old.";
-  // wrapper.appendChild(ageText);
-
-  // Create grid container for weeks
-  var grid = document.createElement("div");
-  grid.style.display = "grid";
-  grid.style.gridTemplateColumns = "repeat(52, auto)"; // Creates 52 columns
-  grid.style.gap = "3px"; // Small gap between cells
-
-  // Total weeks lived calculation
-  var weeksLived = this.getAge();
   
-  // Generate cells for each week
-  for (var i = 0; i < this.config.totalYears * this.config.weeksPerYear; i++) {
-    var cell = document.createElement("div");
-    cell.className = "week-cell"; // Assign class for styling
-    cell.style.backgroundColor = i < weeksLived ? "#00D0FF" : "grey"; // Color cells based on weeks lived
-    grid.appendChild(cell);
-  }
+  // Override dom generator.
+  getDom: function () {
+    var wrapper = document.createElement("div");
+    wrapper.className = "bright medium";
+    
+    // Displaying age in weeks
+    var ageText = document.createElement("div");
+    ageText.innerHTML = "You are " + this.getAge() + " weeks old.";
+    wrapper.appendChild(ageText);
+    var weeksLived = this.getAge();
 
-  wrapper.appendChild(grid);
-  return wrapper;
-},
+    var weeksEarlyYears = this.config.earlyYears * this.config.weeksPerYear;
+    var weeksElementaryYears = this.config.elementaryYears * this.config.weeksPerYear;
+    var weeksMiddleSchoolYears = this.config.middleSchoolYears * this.config.weeksPerYear;
+    var weeksHighSchoolYears = this.config.highSchoolYears * this.config.weeksPerYear;
+    var weeksCollegeYears = this.config.collegeYears * this.config.weeksPerYear;
+    var weeksCareerYears = this.config.careerYears * this.config.weeksPerYear;
+
+    // Create grid container for 52 columns or weeks
+    var grid = document.createElement("div");
+    grid.className = "grid-container";
+    grid.style.gridTemplateColumns = `repeat(${this.config.weeksPerYear}, auto)`; // Use the variable
+    
+    // Generate cells for each week
+    for (var i = 0; i < this.config.totalYears * this.config.weeksPerYear; i++) {
+      var cell = document.createElement("div");
+      cell.className = "week-cell";
+      
+      if (i < weeksEarlyYears) {
+        cell.classList.add("early_years");
+      }
+      else if (i < weeksEarlyYears + weeksElementaryYears) {
+        cell.classList.add("elementary_years");
+      }
+      else if (i < weeksEarlyYears + weeksElementaryYears + weeksMiddleSchoolYears) {
+        cell.classList.add("middle_school_years");
+      }
+      else if (i < weeksEarlyYears + weeksElementaryYears + weeksMiddleSchoolYears + weeksHighSchoolYears) {
+        cell.classList.add("high_school_years");
+      }
+      else if (i < weeksEarlyYears + weeksElementaryYears + weeksMiddleSchoolYears + weeksHighSchoolYears + weeksCollegeYears) {
+        cell.classList.add("college_years");
+      }
+      else if (i < weeksEarlyYears + weeksElementaryYears + weeksMiddleSchoolYears + weeksHighSchoolYears + weeksCollegeYears + weeksCareerYears) {
+        cell.classList.add("career_years");
+      }
+
+      // Set the background color to black if the week number is larger than the current weeks lived
+      if (i >= weeksLived) {
+        cell.style.backgroundColor = "black";
+      }
+
+      grid.appendChild(cell);
+    }
+
+    wrapper.appendChild(grid);
+    return wrapper;
+  },
 });
