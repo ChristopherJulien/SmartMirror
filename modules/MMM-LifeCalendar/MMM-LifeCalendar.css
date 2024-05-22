@@ -15,33 +15,8 @@ body {
 /* Grid container wrapper */
 .grid-container-wrapper {
   display: grid;
-  grid-template-columns: repeat(53, auto); /* Include extra column for year numbers */
-  grid-template-rows: auto repeat(121, auto); /* Include extra row for week header */
   font-size: 6px;
   margin: 20px;
-}
-
-/* Top row for week headers */
-.top-row {
-  display: grid;
-  grid-column: 2 / -1; /* Span from second column to the last column */
-  grid-row: 1;
-  padding: 5px 0;
-  align-items: center;
-}
-
-/* Container for week numbers */
-.week-numbers-container {
-  display: grid;
-  grid-template-columns: repeat(52, auto);
-  grid-column: 1 / -1; /* Span all columns */
-}
-
-/* Left column for year headers */
-.left-column {
-  display: grid;
-  grid-row: 2 / -1;
-  align-items: start;
 }
 
 /* Style for week and year headers */
@@ -49,7 +24,7 @@ body {
   text-align: center;
   font-weight: bold;
   padding: 5px;
-  grid-column: 1 / -1; /* Span all columns */
+  grid-column: 2 / span 52; /* Span all columns starting from the second column */
 }
 
 /* Week and year numbers */
@@ -57,7 +32,7 @@ body {
   text-align: center;
   padding: 2px;
   margin: 1px;
-  grid-row: 1; /* Ensures week numbers are in the first row */
+  grid-row: 2; /* Ensures week numbers are in the second row */
 }
 
 .year-number {
@@ -71,9 +46,8 @@ body {
 .grid-container {
   display: grid;
   gap: 3px;
-  grid-column: 2 / -1;
-  grid-row: 2 / -1;
-  grid-template-columns: repeat(52, auto);
+  grid-template-columns: auto repeat(52, auto); /* Include extra column for year numbers */
+  grid-template-rows: auto auto repeat(120, auto); /* Include extra rows for "Weeks" header and week numbers */
   justify-content: center;
 }
 
@@ -131,9 +105,9 @@ body {
   z-index: 10;
 }
 
-/* Tooltip styles */
 .tooltip-container {
-  position: relative;
+  position: absolute; /* Changed from relative to absolute */
+  z-index: 20; /* Ensures it appears above other elements */
 }
 
 .tooltip {
@@ -142,11 +116,12 @@ body {
   padding: 5px 10px;
   font-weight: 700;
   border-radius: 10px;
-  position: relative;
+  position: absolute;
   box-shadow: 0 2px #000;
   text-shadow: #000 0 2px;
   min-width: max-content;
   opacity: 0.8;
+  z-index: 30; /* Ensures it appears above the tooltip container */
 }
 
 .tooltip:before {
@@ -158,7 +133,6 @@ body {
   bottom: 30px;
   position: absolute;
 }
-
 /* Responsive adjustments */
 @media (max-width: 700px) {
   .week-number-container {
