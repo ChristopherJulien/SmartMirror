@@ -34,10 +34,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-  padding: 2px;
-  margin: 1px;
-  grid-row: 2; /* Ensures week numbers are in the second row */
-}
+ 
 
 .year-number {
   text-align: center;

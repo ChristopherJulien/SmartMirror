@@ -14,7 +14,6 @@ Module.register("MMM-LifeCalendar", {
       { event_text: "Career", duration_years: 40, duration_weeks: 0},
     ],
 
-    
   },
 
   getHeader: function () {

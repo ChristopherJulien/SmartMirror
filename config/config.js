@@ -29,7 +29,7 @@ let config = {
 			position: "top_center",
 			config: {
 				totalYears: 125,
-				birthdate: "1996-05-20", // error on 2019,2013, In a standard year: 365 \div 7 \approx 52.142857365÷7≈52.142857 weeks. In a leap year: 366 \div 7 \approx 52.285714366÷7≈52.285714 weeks.
+				birthdate: "1996-11-14", // error on 2019,2013, In a standard year: 365 \div 7 \approx 52.142857365÷7≈52.142857 weeks. In a leap year: 366 \div 7 \approx 52.285714366÷7≈52.285714 weeks.
     			duration_events: [
 					{ event_text: "Birth", duration_years: 0 , duration_weeks: 0},
 					{ event_text: "Early Years", duration_years: 6 , duration_weeks: 0},
@@ -38,7 +38,12 @@ let config = {
 					{ event_text: "High School", duration_years: 4, duration_weeks: 0 },
 					{ event_text: "College", duration_years: 7 , duration_weeks: 0},
 					{ event_text: "Career", duration_years: 40, duration_weeks: 0},
-				  ]
+				  ],
+				Y1_events:[
+					{ event_text: "2019", event_date: "2019-01-01"},
+				]
+
+				  
 			  
 			}
 		}		
