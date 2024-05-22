@@ -29,7 +29,11 @@ body {
 
 /* Week and year numbers */
 .week-number {
-  text-align: center;
+  text-align: center; /* Centers the text horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
   padding: 2px;
   margin: 1px;
   grid-row: 2; /* Ensures week numbers are in the second row */
@@ -104,35 +108,42 @@ body {
   box-shadow: 0 0 5px #fe2cd4, 0 0 10px #fe2cd4, 0 0 20px #fe2cd4, 0 0 30px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4;
   z-index: 10;
 }
-
 .tooltip-container {
-  position: absolute; /* Changed from relative to absolute */
-  z-index: 20; /* Ensures it appears above other elements */
+  position: absolute;
+  z-index: 20;
+  top: 100%; /* Position the container just below the cell */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .tooltip {
   background-color: #940c3a;
   color: #fff;
-  padding: 5px 10px;
+  padding: 5px; /* Reduce padding to make it more square */
   font-weight: 700;
-  border-radius: 10px;
-  position: absolute;
+  border-radius: 6px; /* Adjust border-radius for rounded corners */
+  position: relative; /* Change to relative to position the triangle correctly */
   box-shadow: 0 2px #000;
   text-shadow: #000 0 2px;
   min-width: max-content;
   opacity: 0.8;
-  z-index: 30; /* Ensures it appears above the tooltip container */
+  z-index: 30;
+  margin-top: 4px; /* Space between the triangle and the tooltip bubble */
+  font-size: 10px; /* Adjust the font size as needed */
 }
 
 .tooltip:before {
-  border: solid;
-  border-color: #940c3a transparent;
-  border-width: 0 6px 10px 6px;
   content: "";
-  left: calc(50% - 6px);
-  bottom: 30px;
   position: absolute;
+  top: 0; /* Position the triangle at the top of the tooltip */
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%); /* Move the triangle up above the tooltip */
+  border-width: 0 4px 4px 4px; /* Adjust the width to make the triangle smaller and narrower */
+  border-style: solid; /* Ensures that the borders are solid lines */
+  border-color: transparent transparent #940c3a transparent; /* Bottom border is the tooltip color, other borders are transparent */
 }
+
+
 /* Responsive adjustments */
 @media (max-width: 700px) {
   .week-number-container {
@@ -144,6 +155,7 @@ body {
     height: 5px;
   }
 }
+
 .week-cell.current_week {
   background-color: #fff !important;
   border-color: #fff !important;
