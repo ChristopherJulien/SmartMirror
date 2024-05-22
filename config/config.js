@@ -29,7 +29,7 @@ let config = {
 			position: "top_center",
 			config: {
 				totalYears: 125,
-				birthdate: "1996-11-14", // error on 2019,2013, In a standard year: 365 \div 7 \approx 52.142857365÷7≈52.142857 weeks. In a leap year: 366 \div 7 \approx 52.285714366÷7≈52.285714 weeks.
+				birthdate: "2000-05-20", // error on 2019,2013, In a standard year: 365 \div 7 \approx 52.142857365÷7≈52.142857 weeks. In a leap year: 366 \div 7 \approx 52.285714366÷7≈52.285714 weeks.
     			earlyYears: 6,
     			elementary_years: 6,
 				middle_school_years: 2,
@@ -37,9 +37,7 @@ let config = {
     			college_years: 8,
 				career_years: 40,
 			}
-
-		}
-		
+		}		
 	]
 };
 
