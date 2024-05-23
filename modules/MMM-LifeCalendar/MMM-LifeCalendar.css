@@ -159,3 +159,48 @@ body {
   box-shadow: 0 0 5px #fe2cd4, 0 0 10px #fe2cd4, 0 0 20px #fe2cd4, 0 0 30px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4;
   z-index: 10;
 }
+
+
+
+/* Additional styles for the gray color scheme */
+.week-cell.early_years_gray {
+  background-color: #F8F9FA;
+  border: 1px solid #F8F9FA;
+}
+
+.week-cell.elementary_years_gray {
+  background-color: #DEE2E6;
+  border: 1px solid #DEE2E6;
+}
+
+.week-cell.middle_school_years_gray {
+  background-color: #ADB5BD;
+  border: 1px solid #ADB5BD;
+}
+
+.week-cell.high_school_years_gray {
+  background-color: #495057;
+  border: 1px solid #495057;
+}
+
+.week-cell.college_years_gray {
+  background-color: #6C757D;
+  border: 1px solid #6C757D;
+}
+
+.week-cell.career_years_gray {
+  background-color: #343A40;
+  border: 1px solid #343A40;
+}
+
+.week-cell.retirement_years_gray {
+  background-color: #495057;
+  border: 1px solid #495057;
+}
+
+.week-cell.current_week_gray {
+  background-color: #6C757D !important;
+  border-color: #6C757D !important;
+  box-shadow: 0 0 5px #ADB5BD, 0 0 10px #ADB5BD, 0 0 20px #ADB5BD, 0 0 30px #ADB5BD, 0 0 40px #ADB5BD, 0 0 40px #ADB5BD, 0 0 40px #ADB5BD, 0 0 40px #ADB5BD;
+  z-index: 10;
+}
