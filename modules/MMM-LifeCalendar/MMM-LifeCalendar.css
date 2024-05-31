@@ -5,19 +5,23 @@
 }
 
 /* General styles */
-body {
+html, body {
+  height: 100%;
   margin: 0;
-  padding-bottom: 150px;
+  padding: 0;
   background-color: #031417;
   color: #fff;
   font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+  padding-bottom: 150px;
 }
 
 #app {
   text-align: center;
   padding: 0;
 }
-
 /* Grid container wrapper */
 .grid-container-wrapper {
   display: grid;
