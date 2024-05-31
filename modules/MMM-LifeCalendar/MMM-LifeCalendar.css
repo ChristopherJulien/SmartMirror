@@ -1,3 +1,9 @@
+/* Define CSS variables */
+:root {
+  --cell-size: 8px;
+  --icon-size: calc(var(--cell-size) - 2px);
+}
+
 /* General styles */
 body {
   margin: 0;
@@ -34,7 +40,6 @@ body {
   justify-content: center;
   align-items: center;
 }
- 
 
 .year-number {
   text-align: center;
@@ -56,8 +61,8 @@ body {
 .week-cell {
   position: relative;
   display: flex;
-  width: 8px;
-  height: 8px;
+  width: var(--cell-size);
+  height: var(--cell-size);
   border-radius: 2px;
   background-color: black;
 }
@@ -105,6 +110,7 @@ body {
   box-shadow: 0 0 5px #fe2cd4, 0 0 10px #fe2cd4, 0 0 20px #fe2cd4, 0 0 30px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4;
   z-index: 10;
 }
+
 .tooltip-container {
   position: absolute;
   z-index: 20;
@@ -140,7 +146,6 @@ body {
   border-color: transparent transparent #940c3a transparent; /* Bottom border is the tooltip color, other borders are transparent */
 }
 
-
 /* Responsive adjustments */
 @media (max-width: 700px) {
   .week-number-container {
@@ -159,8 +164,6 @@ body {
   box-shadow: 0 0 5px #fe2cd4, 0 0 10px #fe2cd4, 0 0 20px #fe2cd4, 0 0 30px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4, 0 0 40px #fe2cd4;
   z-index: 10;
 }
-
-
 
 /* Additional styles for the gray color scheme */
 .week-cell.early_years_gray {
@@ -203,4 +206,101 @@ body {
   border-color: #6C757D !important;
   box-shadow: 0 0 5px #ADB5BD, 0 0 10px #ADB5BD, 0 0 20px #ADB5BD, 0 0 30px #ADB5BD, 0 0 40px #ADB5BD, 0 0 40px #ADB5BD, 0 0 40px #ADB5BD, 0 0 40px #ADB5BD;
   z-index: 10;
+}
+
+/* Additional styles for the green color scheme */
+.week-cell.early_years_green {
+  background-color: #DAD7CD;
+  border: 1px solid #DAD7CD;
+}
+
+.week-cell.elementary_years_green {
+  background-color: #A3B18A;
+  border: 1px solid #A3B18A;
+}
+
+.week-cell.middle_school_years_green {
+  background-color: #588157;
+  border: 1px solid #588157;
+}
+
+.week-cell.high_school_years_green {
+  background-color: #3A5A40;
+  border: 1px solid #3A5A40;
+}
+
+.week-cell.college_years_green {
+  background-color: #344E41;
+  border: 1px solid #344E41;
+}
+
+.week-cell.career_years_green {
+  background-color: #344E41;
+  border: 1px solid #344E41;
+}
+
+.week-cell.retirement_years_green {
+  background-color: #344E41;
+  border: 1px solid #344E41;
+}
+
+.week-cell.current_week_green {
+  background-color: #344E41 !important;
+  border-color: #344E41 !important;
+  box-shadow: 0 0 5px #344E41, 0 0 10px #344E41, 0 0 20px #344E41, 0 0 30px #344E41, 0 0 40px #344E41, 0 0 40px #344E41, 0 0 40px #344E41, 0 0 40px #344E41;
+  z-index: 10;
+}
+
+/* Additional styles for the neutral color scheme */
+.week-cell.early_years_neutral {
+  background-color: #D5BDAF;
+  border: 1px solid #D5BDAF;
+}
+
+.week-cell.elementary_years_neutral {
+  background-color: #E3D5CA;
+  border: 1px solid #E3D5CA;
+}
+
+.week-cell.middle_school_years_neutral {
+  background-color: #F5EBE0;
+  border: 1px solid #F5EBE0;
+}
+
+.week-cell.high_school_years_neutral {
+  background-color: #D6CCC2;
+  border: 1px solid #D6CCC2;
+}
+
+.week-cell.college_years_neutral {
+  background-color: #EDEDE9;
+  border: 1px solid #EDEDE9;
+}
+
+.week-cell.career_years_neutral {
+  background-color: #EDEDE9;
+  border: 1px solid #EDEDE9;
+}
+
+.week-cell.retirement_years_neutral {
+  background-color: #EDEDE9;
+  border: 1px solid #EDEDE9;
+}
+
+.week-cell.current_week_neutral {
+  background-color: #EDEDE9 !important;
+  border-color: #EDEDE9 !important;
+  box-shadow: 0 0 5px #EDEDE9, 0 0 10px #EDEDE9, 0 0 20px #EDEDE9, 0 0 30px #EDEDE9, 0 0 40px #EDEDE9, 0 0 40px #EDEDE9, 0 0 40px #EDEDE9, 0 0 40px #EDEDE9;
+  z-index: 10;
+}
+
+/* Icon style */
+.icon {
+  position: absolute;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  top: 0px; /* Adjust position as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20; /* Ensure it is above the cell */
 }
